@@ -821,7 +821,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(5)
+                            await asyncio.sleep(60)
                             await dmsg.delete()
                             await msg.delete()
                     elif btn == "[]":
@@ -831,7 +831,7 @@ async def manual_filters(client, message, text=False):
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(5)
+                        await asyncio.sleep(60)
                         await dmsg.delete()
                         await msg.delete()
                     else:
@@ -842,7 +842,7 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(5)
+                        await asyncio.sleep(60)
                         await dmsg.delete()
                         await message.delete ()
                 except Exception as e:
