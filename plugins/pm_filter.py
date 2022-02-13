@@ -823,6 +823,7 @@ async def manual_filters(client, message, text=False):
                             )
                             await asyncio.sleep(5)
                             await dmsg.delete()
+                            await msg.delete()
                     elif btn == "[]":
                         dmsg = await client.send_cached_media(
                             group_id,
@@ -832,6 +833,7 @@ async def manual_filters(client, message, text=False):
                         )
                         await asyncio.sleep(5)
                         await dmsg.delete()
+                        await msg.delete()
                     else:
                         button = eval(btn)
                         dmsg = await message.reply_cached_media(
