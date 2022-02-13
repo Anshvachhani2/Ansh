@@ -810,7 +810,7 @@ async def manual_filters(client, message, text=False):
                     if fileid == "None":
                         if btn == "[]":
                             mssd = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
-                            await asyncio.sleep(120)
+                            await asyncio.sleep(5)
                             await mssd.delete()
                         else:
                             button = eval(btn)
@@ -821,7 +821,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(120)
+                            await asyncio.sleep(5)
                             await mssd.delete()
                     elif btn == "[]":
                         await client.send_cached_media(
