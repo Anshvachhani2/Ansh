@@ -173,7 +173,15 @@ async def short(link):
                 shorten_urls += f"\n**GPLinks.in :-** {url}"
     except Exception as error:
         print(f"GPLink error :- {error}")
-    
+        
+    # doodstream shorten
+    try:
+        s = Shortener(api_key=SHORTCM_API)
+        url = s.doodstream.short(link)
+        shorten_urls += f"\n**dood.ws :-** {url}" 
+     except Exception as error:
+        print(f"NullPointer error :- {error}")
+        
     # Send the text
     try:
         shorten_urls += "\n\nThere are shortened links of various providers.🔥"
