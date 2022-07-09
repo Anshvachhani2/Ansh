@@ -97,11 +97,11 @@ This module only works for my admins
 ★ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱
 ★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 𝙼𝚒𝙱"""
     LOG_TEXT_G = """<b>#NewGroup 🔻</b>
-<b>Group --> {}(<code>{}</code>)</b>
-<b>Total Members --> <code>{}</code></b>
-<b>Added By --> {}</b>
+<b>Group -> {}(<code>{}</code>)</b>
+<b>Total Members -> <code>{}</code></b>
+<b>Added By -> {}</b>
 """
     LOG_TEXT_P = """<b>#NewUser 🔻</b>
-<b>ID --></b> <code>{}</code>
-<b>Name --> {}</b>
+<b>ID -></b> <code>{}</code>
+<b>Name -> {}</b>
 """
