@@ -78,6 +78,8 @@ async def start(client, message):
             kk, file_id = message.command[1].split("_", 1)
             pre = 'checksubp' if kk == 'filep' else 'checksub' 
             btn.append([InlineKeyboardButton(" ✅ Refresh", callback_data=f"{pre}#{file_id}")])
+        except (IndexError, ValueError):
+            btn.append([InlineKeyboardButton(" ✅ Refresh", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
             text="**🌀 Aapne Hamare channel ko join nhin kiya hai join kare phle or refresh pe click kare bot work 🌀.**\n\n**💫 Step 1 join channel 💜**\n**💫 Step 2 refresh and bot working...**",
