@@ -41,8 +41,8 @@ async def save_group(bot, message):
             InlineKeyboardButton('📢 Updates', url='https://t.me/+1n7Yy3HXf71kMWQ1')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
-        await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
+        await message.reply_sticker(
+            'CAACAgQAAxkBAAEFbMRi5lo7aCyn5nw019w-yunR6cTJ4wACFQsAAgaAWVCwxDxz_CxC4CkE', 
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
