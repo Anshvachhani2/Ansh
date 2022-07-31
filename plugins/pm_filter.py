@@ -97,21 +97,26 @@ async def next_page(bot, query):
         ) 
     elif off_set is None:
         btn.append(
-            [InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-             InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
+            [InlineKeyboardButton("☞ Nᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")]
+        )
         if BUTTON:
-            btn.append([InlineKeyboardButton(text="Close ❌",callback_data="dsclose")]
+            btn.append([InlineKeyboardButton(f"✮ Pᴀɢᴇs {round(int(offset) / 10) + 1} / {round(total / 10)} ✮", callback_data="pages")]
+        )
+        if BUTTON:
+            btn.append([InlineKeyboardButton(text="✕ Cᴀɴᴄᴇʟ",callback_data="dsclose")]
         ) 
     else:
         btn.append(
             [
-                InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
-                InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("☜ Bᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("☞ Nᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
         if BUTTON:
-            btn.append([InlineKeyboardButton(text="Close ❌",callback_data="dsclose")]
+            btn.append([InlineKeyboardButton(f"✮ Pᴀɢᴇs {round(int(offset) / 10) + 1} / {round(total / 10)} ✮", callback_data="pages")]
+        )
+        if BUTTON:
+            btn.append([InlineKeyboardButton(text="✕ Cᴀɴᴄᴇʟ",callback_data="dsclose")]
         ) 
     try:
         await query.edit_message_reply_markup(
