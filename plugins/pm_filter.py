@@ -86,13 +86,14 @@ async def next_page(bot, query):
     else:
         off_set = offset - 10
     if n_offset == 0:
-        btn.append([
-            [InlineKeyboardButton("☜ Bᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}")],
-            [InlineKeyboardButton(f"✮ Pᴀɢᴇs {round(int(offset) / 10) + 1} / {round(total / 10)} ✮",
-                                  callback_data="pages")]
+        btn.append(
+            [InlineKeyboardButton("☜ Bᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}")
         ])
         if BUTTON:
-            btn.append([InlineKeyboardButton(text="Close ❌",callback_data="dsclose")]
+            btn.append([InlineKeyboardButton(f"✮ Pᴀɢᴇs {round(int(offset) / 10) + 1} / {round(total / 10)} ✮", callback_data="pages")]
+        ) 
+        if BUTTON:
+            btn.append([InlineKeyboardButton(text="✕ Cᴀɴᴄᴇʟ",callback_data="dsclose")]
         ) 
     elif off_set is None:
         btn.append(
