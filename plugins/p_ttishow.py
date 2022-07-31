@@ -44,6 +44,7 @@ async def save_group(bot, message):
         await message.reply_sticker(
             'CAACAgQAAxkBAAEFbMRi5lo7aCyn5nw019w-yunR6cTJ4wACFQsAAgaAWVCwxDxz_CxC4CkE', 
             reply_markup=reply_markup)
+        
     else:
         settings = await get_settings(message.chat.id)
         if settings["welcome"]:
