@@ -100,7 +100,7 @@ async def next_page(bot, query):
             [InlineKeyboardButton("☞ Nᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")]
         )
         if BUTTON:
-            btn.append([InlineKeyboardButton(f"✮ Pᴀɢᴇs {round(int(offset) / 10) + 1} / {round(total / 10)} ✮",
+            btn.append([InlineKeyboardButton(f"✮ Pᴀɢᴇs {math.ceil(int(offset) / 10) + 1} / {math.celi(total / 10)} ✮",
                                              callback_data="pages")]
         )
         if BUTTON:
@@ -685,7 +685,7 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="☞ Nᴇxᴛ", callback_data=f"next_{req}_{key}_{offset}")]
         )
         if BUTTON:
-            btn.append([InlineKeyboardButton(text=f"✮ Pᴀɢᴇs {math.ceil(int(offset) / 10) + 1} ✮", callback_data="pages")]
+            btn.append([InlineKeyboardButton(text=f"✮ Pᴀɢᴇs 1/{math.ceil(int(total_results) / 10)} ✮", callback_data="pages")]
         )
         if BUTTON:
             btn.append([InlineKeyboardButton(text="✕ Cᴀɴᴄᴇʟ",callback_data="dsclose")]
