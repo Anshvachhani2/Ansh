@@ -1,5 +1,5 @@
 import re
-from pyrogram import filters, Client
+from pyrogram import filters, Client, enums
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE
 from database.ia_filterdb import unpack_new_file_id
@@ -26,24 +26,24 @@ async def gen_link_s(bot, message):
     if not replied:
         return await message.reply('Reply to a message to get a shareable link.')
     file_type = replied.media
-    if file_type not in ["video", 'audio', 'document']:
-        return await message.reply("Reply to a supported media")
+    if file_type not in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT]:
+        return await message.reply("**Reply to a supported media**")
     if message.has_protected_content and message.chat.id not in ADMINS:
         return await message.reply("okDa")
-    file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
+    file_id, ref = unpack_new_file_id((getattr(replied, file_type.value)).file_id)
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-    await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={outstr}")
+    await message.reply(f"**Here is your Link:**\n**https://t.me/{temp.U_NAME}?start={outstr}**")
     
     
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
-        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/TmkocEpisodeV3/8 https://t.me/TmkocEpisodeV3/12</code>.")
+        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/Tarak_Maheta_ka_Ooltah_Chasmah/81 https://t.me/Tarak_Maheta_ka_Ooltah_Chasmah/654</code>.")
     links = message.text.strip().split(" ")
     if len(links) != 3:
-        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/TmkocEpisodeV3/8 https://t.me/TmkocEpisodeV3/12</code>.")
+        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/Tarak_Maheta_ka_Ooltah_Chasmah/81 https://t.me/Tarak_Maheta_ka_Ooltah_Chasmah/654</code>.")
     cmd, first, last = links
     regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
     match = regex.match(first)
@@ -73,13 +73,13 @@ async def gen_link_batch(bot, message):
     except Exception as e:
         return await message.reply(f'Errors - {e}')
 
-    sts = await message.reply("<b>Generating link for your message.\nThis may take time depending upon number of messages</b>")
+    sts = await message.reply("Generating link for your message.\nThis may take time depending upon number of messages")
     if chat_id in FILE_STORE_CHANNEL:
         string = f"{f_msg_id}_{l_msg_id}_{chat_id}_{cmd.lower().strip()}"
         b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-        return await sts.edit(f"<b>Here is your Link 🔗 https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}</b>")
+        return await sts.edit(f"**Here is your link 🔗 **https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}**")
 
-    FRMT = "<b>Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`\nStatus: `{sts}`</b>"
+    FRMT = "**Generating Link...**\n**Total Messages:** `{total}`\n**Done:** `{current}`\n**Remaining:** `{rem}`\n**Status:** `{sts}`"
 
     outlist = []
 
@@ -95,7 +95,7 @@ async def gen_link_batch(bot, message):
             continue
         try:
             file_type = msg.media
-            file = getattr(msg, file_type)
+            file = getattr(msg, file_type.value)
             caption = getattr(msg, 'caption', '')
             if caption:
                 caption = caption.html
