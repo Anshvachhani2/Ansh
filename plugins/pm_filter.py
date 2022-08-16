@@ -64,7 +64,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"💝 [{get_size(file.file_size)}] 💖 {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"💝 [{get_size(file.file_size)}] 💖 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
                 ),
             ]
             for file in files
@@ -73,7 +73,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"💖 [{get_size(file.file_size)}] ❤️‍🔥 {file.file_name}", callback_data=f'files#{file.file_id}'              
+                    text=f"💖 [{get_size(file.file_size)}] ❤️‍🔥 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"              
                 ),
             ]
             for file in files
@@ -100,7 +100,7 @@ async def next_page(bot, query):
             [InlineKeyboardButton("☞ Nᴇxᴛ", callback_data=f"next_{req}_{key}_{n_offset}")]
         )
         if BUTTON:
-            btn.append([InlineKeyboardButton(f"✮ Pᴀɢᴇs {math.ceil(int(offset) / 10) + 1} / {math.celi(total / 10)} ✮",
+            btn.append([InlineKeyboardButton(f"✮ Pᴀɢᴇs {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)} ✮",
                                              callback_data="pages")]
         )
         if BUTTON:
@@ -643,12 +643,22 @@ async def auto_filter(client, msg, spoll=False):
         if message.text.startswith("/"): return  # ignore commands
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
-        if 2 < len(message.text) < 100:
+        if 1 < len(message.text) < 200:
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
-                    return await advantage_spell_chok(msg)
+                    try:
+                        reply = search.replace(" ", '+')
+                        one_button = InlineKeyboardMarkup([[InlineKeyboardButton("✆ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴀᴅᴍɪɴ", url="http://t.me/AakankshaV2bot")]])
+                        spell = await msg.reply("<b>⚜ 𝐓𝐡𝐢𝐬 𝐌𝐨𝐯𝐢𝐞 𝐍𝐨𝐭 𝐅𝐨𝐮𝐧𝐝 ⚜/b>\n\n<b>✪ ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ sᴘᴇʟʟɪɴɢ ᴏɴ</b>\n<b>ɢᴏᴏɢʟᴇ & ᴛʀʏ ᴀɢᴀɪɴ ✅</b>\n\n<b>☟ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴀᴅᴍɪɴs ғᴏʀ ᴜᴘʟᴏᴀᴅɪɴɢ ❤️‍🔥</b>", reply_markup = one_button)
+                        await asyncio.sleep(8)
+                        await spell.delete()
+                        await msg.delete ()
+                        
+                    except:
+                        pass
+                    return
                 else:
                     return
         else:
@@ -662,7 +672,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"💖 [{get_size(file.file_size)}] 💝 {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"💖 [{get_size(file.file_size)}] 💝 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
                 ),
             ]
             for file in files
@@ -671,7 +681,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"💖 [{get_size(file.file_size)}] 💝 {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"💖 [{get_size(file.file_size)}] 💝 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
                 ),
             ]
             for file in files
