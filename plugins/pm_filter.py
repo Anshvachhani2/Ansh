@@ -835,7 +835,7 @@ async def manual_filters(client, message, text=False):
                             dmsg = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
                             await asyncio.sleep(55)
                             await dmsg.delete() 
-                            await msg.delete()
+                            await message.delete()
                         else:
                             button = eval(btn)
                             dmsg = await client.send_message(
@@ -847,7 +847,7 @@ async def manual_filters(client, message, text=False):
                             )
                             await asyncio.sleep(60)
                             await dmsg.delete()
-                            await msg.delete()
+                            await message.delete()
                     elif btn == "[]":
                         dmsg = await client.send_cached_media(
                             group_id,
@@ -857,7 +857,7 @@ async def manual_filters(client, message, text=False):
                         )
                         await asyncio.sleep(60)
                         await dmsg.delete()
-                        await msg.delete()
+                        await message.delete()
                     else:
                         button = eval(btn)
                         dmsg = await message.reply_cached_media(
@@ -868,7 +868,7 @@ async def manual_filters(client, message, text=False):
                         )
                         await asyncio.sleep(60)
                         await dmsg.delete()
-                        await msg.delete()
+                        await message.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
