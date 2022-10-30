@@ -250,8 +250,14 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('♻️ 𝗠𝗼𝘃𝗶𝗲 𝗚𝗿𝗼𝘂𝗽 ', url="https://t.me/+Sa-bxyezkdtiZjk1")
+                ]
+            ]
         ) 
-        
+    ) 
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
