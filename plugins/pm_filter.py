@@ -651,7 +651,7 @@ async def auto_filter(client, msg, spoll=False):
                     try:
                         reply = search.replace(" ", '+')
                         one_button = InlineKeyboardMarkup([[InlineKeyboardButton("✆ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴀᴅᴍɪɴ", url="http://t.me/AakankshaV2bot")]])
-                        spell = await msg.reply("<b>⚜ 𝐓𝐡𝐢𝐬 𝐌𝐨𝐯𝐢𝐞 𝐍𝐨𝐭 𝐅𝐨𝐮𝐧𝐝 ⚜/b>\n\n<b>✪ ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ sᴘᴇʟʟɪɴɢ ᴏɴ</b>\n<b>ɢᴏᴏɢʟᴇ & ᴛʀʏ ᴀɢᴀɪɴ ✅</b>\n\n<b>☟ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴀᴅᴍɪɴs ғᴏʀ ᴜᴘʟᴏᴀᴅɪɴɢ ❤️‍🔥</b>", reply_markup = one_button)
+                        spell = await msg.reply("<b>⚜ 𝐓𝐡𝐢𝐬 𝐌𝐨𝐯𝐢𝐞 𝐍𝐨𝐭 𝐅𝐨𝐮𝐧𝐝 ⚜</b>\n\n<b>✪ ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ sᴘᴇʟʟɪɴɢ ᴏɴ</b>\n<b>ɢᴏᴏɢʟᴇ & ᴛʀʏ ᴀɢᴀɪɴ ✅</b>\n\n<b>☟ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴀᴅᴍɪɴs ғᴏʀ ᴜᴘʟᴏᴀᴅɪɴɢ ❤️‍🔥</b>", reply_markup = one_button)
                         await asyncio.sleep(8)
                         await spell.delete()
                         await msg.delete ()
