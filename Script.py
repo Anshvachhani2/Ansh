@@ -110,21 +110,4 @@ This module only works for my admins
 <b>Name -> {}</b>
 """
 
-    CUSTOM_FILE_CAPTION = """<b>⍟ File Name 🔻</b>
-
-<b>• [ `{file_name}`] </b>
-
-<b>⍟  File Size  🔻</b>
-
-<b>• [ {file_size} ]</b>
-
-<b>━━━━━━━━━━━━━━━━━━━</b>
-Pᴏᴡᴇʀᴇᴅ ʙʏ ❤️ <b><a href=https://t.me/Request_Movies_V3>Rᴇǫᴜᴇsᴛ_Mᴏᴠɪᴇ_V𝟹</a></b>
-"""
     
-    BATCH_FILE_CAPTION = """[`{file_caption}`]
-
-**💝 Upload BY - 
-
-<a href=https://t.me/+1n7Yy3HXf71kMWQ1>ReQuest Movie Group</a>**
-"""
