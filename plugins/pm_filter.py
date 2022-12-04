@@ -73,6 +73,11 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
+                    text=f"How To download",
+                    url=f"https://t.me/Request_Movies_V3"
+                ), 
+            ][
+                InlineKeyboardButton(
                     text=f"💚 [{get_size(file.file_size)}] 💜 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
                 ),
             ]
